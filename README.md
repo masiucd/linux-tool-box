@@ -22,3 +22,37 @@ cd <file path goes here>
 # to go up a directory from your current directory
 cd ..
 ```
+
+#### Print single string in terminal
+
+``` bash
+  NAME="Marcell"
+  echo "Hello $NAME!"
+```
+
+#### Variables
+
+``` bash
+  TEAM="Legia Warszawa"
+  echo "My team is $TEAM!"
+```
+
+## [Functions in bash](https://devhints.io/bash)
+
+#### simple Functions
+
+``` bash
+  get_team(){
+    echo "Legia"
+  }
+
+  echo "My team is $(get_team)"
+
+  get_name(){
+  echo $1
+}
+
+  greet=$(get_name "Marcell")
+
+  echo "Hello $greet ""
+```
