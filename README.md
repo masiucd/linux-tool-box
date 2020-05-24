@@ -15,12 +15,42 @@ I will write about:
 
 ## [Navigate the file system](https://swcarpentry.github.io/shell-novice/02-filedir/index.html)
 
+#### [egghead.io](https://egghead.io/courses/automate-daily-development-tasks-with-bash).
+
 #### Change bash's current working directory
 
 ```bash
 cd <file path goes here>
 # to go up a directory from your current directory
 cd ..
+```
+
+#### List a directory's contents
+
+```bash
+ls
+  #  to get more information add the -l flag
+
+ls -l
+/*
+this will output -rw-r--r--
+
+what it means is :
+permission for you, your group, all number of links (hardlinks & softlinks)
+
+owner user
+owner group
+file size
+last modified time
+file name
+
+to see the hidden folders add on the -a flag
+ */
+
+ ls -a
+ /* Can been combined with -l as well */
+ls -la
+
 ```
 
 #### Print single string in terminal
