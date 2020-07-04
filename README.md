@@ -1,17 +1,17 @@
-# bash make you productive
+# Bash With Marcell 😎λ👩🏻‍💻
 
-This is a simple tutorial on how you can be more comfortable with using bash and be more productive as a developer
+This is a simple tutorial on how you can be more comfortable with using bash and be more productive as a developer. Even if you using ZSH or Fish most of this scripts will still work for you. If you using *powershell* on Windows then sorry that would be another tutorial.
 
 ---
 
 Bash is a powerful tool and has been around since 1989. Bash is available on many different OS ans Mac-os is one of them. It is the default Shell for Linux operative system.
 I will write about:
 
-- creating, moving, deleting and copying files
-- finding files and different text patterns
-- interacting with your filesystem
-- Language syntax like conditionals and variables
-- creating and running different scripts
+* creating, moving, deleting and copying files 🤟🏻
+* finding files and different text patterns 🧘🏻‍♂️
+* interacting with your filesystem 🗄
+* Language syntax like conditionals and variables 🈚️
+* creating and running different scripts ℬ
 
 ## [Navigate the file system](https://swcarpentry.github.io/shell-novice/02-filedir/index.html)
 
@@ -19,7 +19,7 @@ I will write about:
 
 #### Change bash's current working directory
 
-```bash
+``` bash
 cd <file path goes here>
 # to go up a directory from your current directory
 cd ..
@@ -27,7 +27,7 @@ cd ..
 
 #### List a directory's contents
 
-```bash
+``` bash
 ls
   #  to get more information add the -l flag
 
@@ -45,24 +45,40 @@ last modified time
 file name
 
 to see the hidden folders add on the -a flag
- */
+*/
 
- ls -a
+ls -a
  /* Can been combined with -l as well */
 ls -la
 
 ```
 
+#### Move a file and change name
+
+``` bash
+  mv <file/directory> <destination>
+
+  # For example move a js file to a directory at the same level
+  mv foo.js ./scripts
+
+  # For example change a js file name fromm foo to bar
+  mv foo.js bar.js
+
+  # Move all images that end at png to a new folder
+
+  mv *.png ./images
+```
+
 #### Print single string in terminal
 
-```bash
+``` bash
   NAME="Marcell"
   echo "Hello $NAME!"
 ```
 
 #### Variables
 
-```bash
+``` bash
   TEAM="Legia Warszawa"
   echo "My team is $TEAM!"
 ```
@@ -71,7 +87,7 @@ ls -la
 
 #### simple Functions
 
-```bash
+``` bash
   get_team(){
     echo "Legia"
   }
@@ -91,24 +107,24 @@ ls -la
 
 ##### Curl Post request with no data
 
-```curl
+``` curl
   curl -X POST http://URL//example.com
 ```
 
 ##### Curl Post request with data
 
-```curl
+``` curl
   curl -d "data=example1&data2=example2" http://UTL/example.com
 ```
 
 ##### Curl Post request with data to a Form
 
-```curl
+``` curl
   curl -X POST -F "name=user" -F "password=123456" http://URL/example.com
 ```
 
 ##### Curl Post request with a file
 
-```curl
+``` curl
   curl -X POST -F "image=@/path/example.gif" http://URL/uploadform.cgi
 ```
