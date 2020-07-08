@@ -53,6 +53,39 @@ ls -la
 
 ```
 
+#### Check content in a file , for example checking your dependencies in package.json
+
+``` bash
+cat <file name>
+# shows it with line numbers
+# 1.
+# 2.
+# ...
+cat -n <file name>
+```
+
+#### View a file without showing all of the content
+
+``` bash
+  # view the file without dumping it all onto your screen
+less <file name>
+# Some useful shortcuts in less
+#   Shift+g   (jump to end)
+#   g         (go back to top)
+#   /         (search)
+#   q         (quit/close)
+```
+
+#### Open directory
+
+``` bash
+  # Open in current directory
+  open .
+
+  # Open directory
+  open <directory>
+```
+
 #### Move a file and change name
 
 ``` bash
