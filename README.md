@@ -6,6 +6,8 @@
 - [Change Directory](#change-dir)
 - [View files](#cat)
 - [Deleting/Creating](#delete-create)
+- [move/copy](#move-copy)
+- [find file/folder](#find-file-folder)
 - [Function](#fn)
 - [Curl](#curl)
 
@@ -42,10 +44,10 @@ cd ..
 
 ```bash
 ls
-  #  to get more information add the -l flag
+   to get more information add the -l flag
 
 ls -l
-/*
+
 this will output -rw-r--r--
 
 
@@ -61,10 +63,10 @@ file name
 to see the hidden folders add on the -a flag
 
 the  dash before r means it's a file !
-*/
+
 
 ls -a
- /* Can been combined with -l as well */
+ Can been combined with -l as well
 ls -la
 
 ```
@@ -167,9 +169,90 @@ I highly don't recommend to use it if you don't know what you are doing.
 
 <br />
 
-## [Functions in bash](https://devhints.io/bash)
+## move and copy <a name = "move-copy"> </a>
 
-## simple Functions <a name = "fn"> </a>
+Move comand (mv) comand allows us to move folders/files.
+
+we want to move index.js in folder b
+
+```bash
+  # we have in folder a
+  index.js style.css
+
+  mv index.js ../b
+
+  ls b
+  # index.js ...and some other files
+
+```
+
+to copy a file we use the **cp** comand.
+For example cp file.txt src/file.txt
+we copy file.txt into src with the same file name.
+
+```bash
+  cp README.md src/README.md
+```
+
+We can evenly copy everyting in a folder recursively using the -R flag
+
+```bash
+  cp -R src/* anotherFolder/
+```
+
+</br>
+
+## Find files and folders <a name = "find-file-folder"> </a>
+
+Let's say we have a working folder with diffrent files.
+We want to find all the typescript files.
+
+```bash
+  ls src
+  # app.js app.ts index.js index.ts style.css index.html
+```
+
+```bash
+  find src/ -name "*.ts"
+```
+
+will give us all the typescript files.
+
+We can even add some extra flags for a more specific search
+
+```bash
+  find images/ -iname "*.png"
+```
+
+will match both PNG and png because the i flag is a case sensitive flag.
+
+You can even find folders through
+
+```bash
+find . -type d
+
+.
+./src
+./helpers
+
+find . -type d -name "icons"
+./icons
+
+find src -type d
+src
+src/middleware
+src/config
+src/utils
+src/models
+src/__tests__
+src/controllers
+src/routes
+
+```
+
+<!-- ## [Functions in bash](https://devhints.io/bash) -->
+
+<!-- ## simple Functions <a name = "fn"> </a>
 
 ```bash
   get_team(){
@@ -211,4 +294,4 @@ I highly don't recommend to use it if you don't know what you are doing.
 
 ```curl
   curl -X POST -F "image=@/path/example.gif" http://URL/uploadform.cgi
-```
+``` -->
