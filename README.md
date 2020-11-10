@@ -6,10 +6,10 @@
 - [Change Directory](#change-dir)
 - [View files](#cat)
 - [Deleting/Creating](#delete-create)
-- [move/copy](#move-copy)
-- [find file/folder](#find-file-folder)
-- [Function](#fn)
-- [Curl](#curl)
+- [Move/copy](#move-copy)
+- [Find file/folder](#find-file-folder)
+- [Grep](#grep)
+<!-- - [Function](#fn) -->
 
 ## About <a name = "about"></a>
 
@@ -249,6 +249,32 @@ src/controllers
 src/routes
 
 ```
+
+## Grep <a name = "grep"> </a>
+
+Grep works the same as find byt the difference is that is searches by a pattern. Grep is vey powerful and you can configure it with dfferent flags to get different outputs.
+
+```bash
+  grep "let" client/*
+```
+
+Will print out a lot of let declaration in our client folder.
+
+- client/record.js: let record = xs[0]
+- client/record.js: let recordCount = 0
+- client/record.js: let decreaseCount = 0
+- client/record.js: for (let i = 0; i < xs.length; i++) {
+- client/record.js: for (let i = 0; i < xs.length; i++) {
+- client/record.js:let list = [10, 5, 20, 20, 4, 5, 2, 25, 1]
+- ...and much more
+
+To be more specific we can adn some flags to it.
+
+```bash
+  grep --color -n  "let" client/*
+```
+
+color will highlight the pattern and -n will give us on what row we can find the our pattern.
 
 <!-- ## [Functions in bash](https://devhints.io/bash) -->
 
