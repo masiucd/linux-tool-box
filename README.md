@@ -9,7 +9,9 @@
 - [Move/copy](#move-copy)
 - [Find file/folder](#find-file-folder)
 - [Grep](#grep)
-<!-- - [Function](#fn) -->
+- [Curl](#curl)
+  <!-- - [Function](#fn) -->
+  <hr/>
 
 ## About <a name = "about"></a>
 
@@ -35,18 +37,18 @@ Bash or any other unix shell like [Zsh](https://en.wikipedia.org/wiki/Z_shell) o
 ## Change bash's current working directory <a name = "change-dir"></a>
 
 ```bash
-cd <file path goes here>
+$ cd <file path goes here>
 # to go up a directory from your current directory
-cd ..
+$ cd ..
 ```
 
 #### List a directory's contents
 
 ```bash
-ls
+$ ls
    to get more information add the -l flag
 
-ls -l
+$ ls -l
 
 this will output -rw-r--r--
 
@@ -71,22 +73,22 @@ ls -la
 
 ```
 
-<br/>
+<hr/>
 
 ## Check content in a file , for example checking your dependencies in package.json <a name = "cat"> </a>
 
 ```bash
-cat <file name>
+$ cat <file name>
 # shows it with line numbers
 # 1.
 # 2.
 # ...
-cat -n <file name>
+$ cat -n <file name>
 ```
 
 ```bash
   # view the file without dumping it all onto your screen
-less <file name>
+$ less <file name>
 # Some useful shortcuts in less
 #   Shift+g   (jump to end)
 #   g         (go back to top)
@@ -94,33 +96,33 @@ less <file name>
 #   q         (quit/close)
 ```
 
-<br />
+<hr/>
 
 ## Remove/delete files <a name = "delete-create"> </a>
 
 echo work like _console.log_ in javascript, it will just print the string in your console.
 
 ```bash
-  echo 'hello'
+  $ echo 'hello'
 ```
 
 we can simple generate some randomtext in a file like this
 
 ```bash
-  echo "hello there master" > text.txt
+  $ echo "hello there master" > text.txt
 ```
 
 now to see what is in the current directory
 
 ```zsh
-  $ls
+  $ ls
   style.css app.js main.rs text.txt
 ```
 
 bash automatically created a file for us
 
 ```bash
-  $cat text.txt
+  $ cat text.txt
 
   # prints : hello there master
 ```
@@ -128,25 +130,25 @@ bash automatically created a file for us
 to overide the text you simple type same thing with another value like:
 
 ```bash
-  echo "12345 is some cool number" >  text.txt
+  $ echo "12345 is some cool number" >  text.txt
 ```
 
 to concat text value we simply add another > symbol
 
 ```bash
-  echo "I don't want to overide the text this time" >> text.text
+  $ echo "I don't want to overide the text this time" >> text.text
 ```
 
 create directory with bash we use the _mkdir_
 
 ```bash
-  $mkdir <directory name>
+  $ mkdir <directory name>
 ```
 
 to create some subfoldres that don't exists we can add the _-p_ flag.
 
 ```bash
-  $mkdir /a/b/c/d
+  $ mkdir /a/b/c/d
 ```
 
 will give os the folder structure of
@@ -163,11 +165,11 @@ Sometimes you will see the **-rf flag** , recursive force.
 I highly don't recommend to use it if you don't know what you are doing.
 
 ```bash
- $rm -r folder/
- $rm -rf folder/
+ $ rm -r folder/
+ $ rm -rf folder/
 ```
 
-<br />
+<hr/>
 
 ## move and copy <a name = "move-copy"> </a>
 
@@ -179,9 +181,9 @@ we want to move index.js in folder b
   # we have in folder a
   index.js style.css
 
-  mv index.js ../b
+ $ mv index.js ../b
 
-  ls b
+ $ ls b
   # index.js ...and some other files
 
 ```
@@ -191,16 +193,16 @@ For example cp file.txt src/file.txt
 we copy file.txt into src with the same file name.
 
 ```bash
-  cp README.md src/README.md
+ $ cp README.md src/README.md
 ```
 
 We can evenly copy everyting in a folder recursively using the -R flag
 
 ```bash
-  cp -R src/* anotherFolder/
+ $ cp -R src/* anotherFolder/
 ```
 
-</br>
+<hr/>
 
 ## Find files and folders <a name = "find-file-folder"> </a>
 
@@ -208,12 +210,12 @@ Let's say we have a working folder with diffrent files.
 We want to find all the typescript files.
 
 ```bash
-  ls src
+ $ ls src
   # app.js app.ts index.js index.ts style.css index.html
 ```
 
 ```bash
-  find src/ -name "*.ts"
+ $ find src/ -name "*.ts"
 ```
 
 will give us all the typescript files.
@@ -229,13 +231,13 @@ will match both PNG and png because the i flag is a case sensitive flag.
 You can even find folders through
 
 ```bash
-find . -type d
+$ find . -type d
 
 .
 ./src
 ./helpers
 
-find . -type d -name "icons"
+$ find . -type d -name "icons"
 ./icons
 
 find src -type d
@@ -250,12 +252,14 @@ src/routes
 
 ```
 
+<hr/>
+
 ## Grep <a name = "grep"> </a>
 
 Grep works the same as find byt the difference is that is searches by a pattern. Grep is vey powerful and you can configure it with dfferent flags to get different outputs.
 
 ```bash
-  grep "let" client/*
+ $ grep "let" client/*
 ```
 
 Will print out a lot of let declaration in our client folder.
@@ -271,10 +275,73 @@ Will print out a lot of let declaration in our client folder.
 To be more specific we can adn some flags to it.
 
 ```bash
-  grep --color -n  "let" client/*
+  $ grep --color -n  "let" client/*
 ```
 
 color will highlight the pattern and -n will give us on what row we can find the our pattern.
+
+<hr/>
+
+## Curl <a name = "curl"> </a>
+
+Curl is how you can make `HTTP` request from your shell.
+A great tool for testing your endpoints, both retrieving data and doing `post` requests.
+
+For example, curl as an HTTP client can send a request to view or download content (GET request) or to send content via a form on a website (POST request). Many web applications and services allow curl to interact with its Application Programming Interface (APIs).
+
+For example retrieve the weather with ` curl http://wttr.in/location`
+
+```zsh
+  $ curl http://wttr.in/newyork
+```
+
+<img src="./ex.png"  width="100%" />
+
+### Get files
+
+using the **starwars** api
+we can add a lot of different flags on our request, including data, headers, tokens etc.
+I recomend to go through the documentation of `curl` if you are intrested [curl](https://curl.se/docs/manual.html)
+
+```bash
+  $ curl https://swapi.co/api/people/1/
+  $ curl -i https://swapi.co/api/people/1/
+```
+
+the **-i** will give us the headers as well, stands for include.
+
+```http
+HTTP/2 404
+date: Tue, 10 Nov 2020 12:24:24 GMT
+content-type: text/html; charset=utf-8
+set-cookie: __cfduid=dfa086f1f75244512be58ec2171024d811605011064; expires=Thu, 10-Dec-20 12:24:24 GMT; path=/; domain=.swapi.co; HttpOnly; SameSite=Lax; Secure
+cache-control: no-cache, no-store
+cf-cache-status: DYNAMIC
+cf-request-id: 0653b65cd60000d14b542e6000000001
+expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+report-to: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=0E0ijimbSl%2B1s8wLqeauH5lS8Mw9t98h%2FyNqfRMZ%2Fara%2FDw3MrXXrJVJ9IbVJR3siHuLBN3Kx1XAJ3H1acFtd%2Fx81Rk6RfqFEg%3D%3D"}],"group":"cf-nel","max_age":604800}
+nel: {"report_to":"cf-nel","max_age":604800}
+server: cloudflare
+cf-ray: 5effc00e29acd14b-GOT
+```
+
+```bash
+  $ curl -iL https://swapi.co/api/people/2
+```
+
+the _L_ flag will tell to follow redirects
+
+To add headers to out request we simple add the `-H` flag.
+
+```bash
+ $ curl -H "Authorization: Bearer some-token" localhost:5000/api/pokemons
+```
+
+with using the `-X` flag we can even do `POST`` requests.
+
+```bash
+ curl -X POST "Content-Type: application/json" -d '{"id":12, "name":"Zlatan"}'  https://jsonplaceholder.typicode.com/users
+```
 
 <!-- ## [Functions in bash](https://devhints.io/bash) -->
 
