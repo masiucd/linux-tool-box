@@ -344,6 +344,31 @@ with using the `-X` flag we can even do `POST`` requests.
  curl -X POST "Content-Type: application/json" -d '{"id":12, "name":"Zlatan"}'  https://jsonplaceholder.typicode.com/users
 ```
 
+##### Curl Post request with no data
+
+```curl
+  curl -X POST http://URL//example.com
+```
+
+##### Curl Post request with data
+
+```curl
+  curl -d "data=example1&data2=example2" http://UTL/example.com
+```
+
+##### Curl Post request with data to a Form
+
+```curl
+  curl -X POST -F "name=user" -F "password=123456" http://URL/example.com
+```
+
+##### Curl Post request with a file
+
+```curl
+  curl -X POST -F "image=@/path/example.gif" http://URL/uploadform.cgi
+```
+
+<hr>
 ## Command Line Arguments <a name = "cmd-arg"> </a>
 
 You can run `Command line arguments` with your shell. Start creating a file script.sh.
@@ -406,48 +431,31 @@ now run script.sh. "Your name"
 Hello `Your name`
 ```
 
-<!-- ## [Functions in bash](https://devhints.io/bash) -->
+## Functions in bash <a name = "fn"> </a>
 
-<!-- ## simple Functions <a name = "fn"> </a>
+create a file, `fns.sh` and add permission so you can execute it.
 
 ```bash
-  get_team(){
-    echo "Legia"
-  }
+  $ chmod +x fns.sh
+```
 
-  echo "My team is $(get_team)"
+```bash
+  greet(){
+  echo "hello"
+}
+  greet
+```
 
-  get_name(){
-  echo $1
+Will print `hello`
+
+```bash
+ greet(){
+  echo "hello"
+
 }
 
-  greet=$(get_name "Marcell")
-
-  echo "Hello $greet ""
+greeting=$(greet "$1")
+echo "greeting variable is $greeting"
 ```
 
-## Making HTTP requests with CURL <a name ="curl"> </a>
-
-##### Curl Post request with no data
-
-```curl
-  curl -X POST http://URL//example.com
-```
-
-##### Curl Post request with data
-
-```curl
-  curl -d "data=example1&data2=example2" http://UTL/example.com
-```
-
-##### Curl Post request with data to a Form
-
-```curl
-  curl -X POST -F "name=user" -F "password=123456" http://URL/example.com
-```
-
-##### Curl Post request with a file
-
-```curl
-  curl -X POST -F "image=@/path/example.gif" http://URL/uploadform.cgi
-``` -->
+Will print `greeting variable is hello`
