@@ -10,6 +10,7 @@
 - [Find file/folder](#find-file-folder)
 - [Grep](#grep)
 - [Curl](#curl)
+- [Command Line Arguments](#cmd-arg)
   <!-- - [Function](#fn) -->
   <hr/>
 
@@ -341,6 +342,68 @@ with using the `-X` flag we can even do `POST`` requests.
 
 ```bash
  curl -X POST "Content-Type: application/json" -d '{"id":12, "name":"Zlatan"}'  https://jsonplaceholder.typicode.com/users
+```
+
+## Command Line Arguments <a name = "cmd-arg"> </a>
+
+You can run `Command line arguments` with your shell. Start creating a file script.sh.
+
+```bash
+  $ touch script.sh
+
+```
+
+edit the content in `script.sh`
+
+```bash
+  $ echo "Hello there"
+```
+
+and try to execute your script file ./script.sh.  
+You will probably get a `zsh/bash: permission denied: ./script.sh`
+
+thats because we don't have the permission to execute our script, the check what your permissions are, you can simply run. `ls -l`.
+You will get something like this:
+
+```bash
+  -rw-r--r--  1 marcis  staff     9371 Nov 15 11:56 README.md
+  -rw-r--r--  1 marcis  staff      600 Nov  9 12:54 a.md
+  -rw-r--r--@ 1 marcis  staff  1383257 Nov 10 13:15 ex.png
+  -rwxr-xr-x  1 marcis  staff       75 Nov  9 12:54 func.sh
+  -rw-r--r--  1 marcis  staff       11 Nov  9 12:54 hello.txt
+  -rw-r--r--  1 marcis  staff       19 Nov 15 12:00 script.sh
+```
+
+you can se that we have permission to read and write but not to execute.
+To give permission to our file we can simply run.
+
+```bash
+  $ chmod u+x script.sh
+```
+
+now when we run `ls -a` we will have a smaller change
+
+```bash
+  -rwxr--r--  1 marcis  staff       19 Nov 15 12:00 script.sh
+```
+
+we have now the permission to execute our script.
+Try to run ./script.sh, should print out `Hello there`
+
+Let's make it more dynamic and some variables to the script file.
+in `script.sh`:
+
+```bash
+  echo "Welcome, enter your name"
+  echo "Hello there $1"
+```
+
+the dollar sign is a variable.
+
+```bash
+now run script.sh. "Your name"
+
+Hello `Your name`
 ```
 
 <!-- ## [Functions in bash](https://devhints.io/bash) -->
