@@ -11,7 +11,9 @@
 - [Grep](#grep)
 - [Curl](#curl)
 - [Command Line Arguments](#cmd-arg)
-  <!-- - [Function](#fn) -->
+- [Function](#fn)
+- [Conditionals](#conditionals)
+
   <hr/>
 
 ## About <a name = "about"></a>
@@ -451,7 +453,6 @@ Will print `hello`
 ```bash
  greet(){
   echo "hello"
-
 }
 
 greeting=$(greet "$1")
@@ -459,3 +460,29 @@ echo "greeting variable is $greeting"
 ```
 
 Will print `greeting variable is hello`
+
+<hr>
+
+## Conditionals <a name = "conditionals"> </a>
+
+create a file conditionals.sh and give it execution permission.
+
+```bash
+   if [[ $USER = 'marcis' ]]; then
+	 echo "hello master"
+ else
+	 echo "you are not the master"
+ fi
+
+```
+
+you close the expression with `fi` reversed if ✌🏻
+
+```bash
+ if [[ 10 -eq 10]]; then
+	echo "true"
+else
+	echo "false"
+fi
+
+```
