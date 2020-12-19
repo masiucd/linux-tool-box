@@ -1,4 +1,4 @@
-# Bash With Marcell 😎λ👩🏻‍💻
+# Linux tools  😎λ👩🏻‍💻
 
 ## Table of Contents
 
@@ -485,4 +485,12 @@ else
 	echo "false"
 fi
 
+```
+
+## Simple Calander scripts
+
+```bash
+  $ cal 
+  $ cal -3
+  $ cal | head -n5  
 ```
